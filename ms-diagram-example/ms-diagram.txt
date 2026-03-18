@@ -1,0 +1,29 @@
+@startuml
+'left to right direction
+top to bottom direction
+
+node "Client" {
+    artifact "Navegador" as clientBrowser
+}
+
+node "Docker WSL 2 Subsystem" { 
+    component "Frontend" {
+        artifact "React App" as frontReactJS
+    } 
+
+    component "Backend" {
+        artifact "Express server (JS)" as backExpressJS
+        artifact "mongoose ORM" as backORM
+        interface "REST API\n(HTTP:3001)" as API        
+    }          
+
+    database "MongoDB" as db
+}
+
+frontReactJS -> API : "" /api/todos ""
+backExpressJS ..> backORM
+backExpressJS - API
+backORM -> db : "" HTTP:27017 ""
+'clientBrowser -> API
+clientBrowser -> frontReactJS: "" HTTP:3000 ""
+@enduml
