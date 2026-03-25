@@ -1,6 +1,5 @@
 @startuml
 top to bottom direction
-'bottom to top direction
 
 node "Client" {
     artifact "Navegador" as clientBrowser
