@@ -27,3 +27,7 @@ Modo de uso:
 3. Probar puntos de entrada de cada app. Por ejemplo, en arquitectura monolítica, es accesible a través de [http://localhost](http://localhost).
 
 TIP: Para cada app, revisar archivo ```docker-compose.yml``` para ver el detalle de cada arquitectura.
+
+### 2. Ejemplo simple Principio de Inversión de Dependencias en Spring Boot
+
+Carpeta de proyecto: [Enlace](ejemplo-sc-dip/).
