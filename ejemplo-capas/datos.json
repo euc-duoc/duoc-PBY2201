@@ -1,0 +1,20 @@
+[
+    {
+        "id": "1",
+        "nombre": "P.N. Laguna San Rafael",
+        "visitasChilenos": 5092,
+        "visitasExtranjeros": 2713
+    },
+    {
+        "id": "2",
+        "nombre": "R.N. Cerro Castillo",
+        "visitasChilenos": 6478,
+        "visitasExtranjeros": 4761
+    },
+    {
+        "id": "3",
+        "nombre": "P.N. Torres del Paine",
+        "visitasChilenos": 84001,
+        "visitasExtranjeros": 136899
+    }
+]

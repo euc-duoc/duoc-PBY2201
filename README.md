@@ -31,3 +31,7 @@ TIP: Para cada app, revisar archivo ```docker-compose.yml``` para ver el detalle
 ### 2. Ejemplo simple Principio de Inversión de Dependencias en Spring Boot
 
 Carpeta de proyecto: [Enlace](ejemplo-sc-dip/).
+
+### 3. Ejemplo de arquitectura Controlador - Servicio - Repositorio en Spring Boot
+
+Carpeta de proyecto: [Enlace](ejemplo-capas/).
