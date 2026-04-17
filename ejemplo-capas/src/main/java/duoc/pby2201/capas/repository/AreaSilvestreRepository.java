@@ -48,7 +48,7 @@ public class AreaSilvestreRepository {
         return !findById(id).isEmpty();
     }
 
-    public Iterable<AreaSilvestre> findAll() {
+    public List<AreaSilvestre> findAll() {
         return leerDatos();
     }
 

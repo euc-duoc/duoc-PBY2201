@@ -10,4 +10,5 @@ public class AreaSilvestre {
     private String nombre;
     private int visitasChilenos;
     private int visitasExtranjeros;
+    private TipoAreaSilvestre tipo;
 }
