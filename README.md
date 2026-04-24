@@ -35,3 +35,7 @@ Carpeta de proyecto: [Enlace](ejemplo-sc-dip/).
 ### 3. Ejemplo de arquitectura Controlador - Servicio - Repositorio en Spring Boot
 
 Carpeta de proyecto: [Enlace](ejemplo-capas/).
+
+### 4. Ejemplo de API CRUD con BD
+
+Carpeta de proyecto: [Enlace](ejemplo-cruddb/).
