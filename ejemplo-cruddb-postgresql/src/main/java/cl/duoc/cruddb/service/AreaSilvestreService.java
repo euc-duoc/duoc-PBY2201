@@ -1,6 +1,7 @@
 package cl.duoc.cruddb.service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,5 +53,30 @@ public class AreaSilvestreService {
 
     public AreaSilvestre guardarAreaSilvestre(AreaSilvestre as) {
         return repo.save(as);
+    }
+
+    public AreaSilvestre actualizarAreaSilvestre(AreaSilvestre as) {
+        AreaSilvestre base;
+        
+        try {
+            base = repo.findById(as.getId()).get();
+        } catch (NoSuchElementException e) {
+            return null;
+        }
+
+        base.setNombre(as.getNombre());
+        base.setVisitasChilenos(as.getVisitasChilenos());
+        base.setVisitasExtranjeros(as.getVisitasExtranjeros());
+        base.setTipo(as.getTipo());
+
+        return repo.save(base);
+    }
+
+    public boolean eliminarAreaSilvestre(int id) {
+        if(!repo.findById(id).isPresent())
+            return false;
+
+        repo.deleteById(id);
+        return true;
     }
 }

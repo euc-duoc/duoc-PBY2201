@@ -5,15 +5,18 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import cl.duoc.cruddb.model.AreaSilvestre;
 import cl.duoc.cruddb.model.TipoAreaSilvestre;
 import cl.duoc.cruddb.service.AreaSilvestreService;
+
 
 @RestController
 public class AppController {
@@ -42,8 +45,25 @@ public class AppController {
 
     @PostMapping("/crearAreaSilvestre")
     public ResponseEntity<AreaSilvestre> crearAreaSilvestre(@RequestBody AreaSilvestre as) {
+      AreaSilvestre nueva = serv.guardarAreaSilvestre(as);
+      return new ResponseEntity<>(nueva, HttpStatus.OK);
+    }
 
-        AreaSilvestre nueva = serv.guardarAreaSilvestre(as);
-        return new ResponseEntity<>(nueva, HttpStatus.OK);
+    @PutMapping("/actualizarAreaSilvestre")
+    public ResponseEntity<AreaSilvestre> actualizarAreaSilvestre(@RequestBody AreaSilvestre datos) {
+      AreaSilvestre actualizado = serv.actualizarAreaSilvestre(datos);
+
+      if(actualizado == null)
+        return ResponseEntity.notFound().build();
+
+      return ResponseEntity.ok(actualizado);
+    }
+
+    @DeleteMapping("/eliminarAreaSilvestre/{id}")
+    public ResponseEntity<Void> eliminarAreaSilvestre(@PathVariable int id) {
+      if(serv.eliminarAreaSilvestre(id))
+        return ResponseEntity.ok().build();
+      else
+        return ResponseEntity.notFound().build();
     }
 }
